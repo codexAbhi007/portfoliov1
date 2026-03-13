@@ -17,8 +17,8 @@ export function HeaderInfo() {
   }
 
   return (
-    <div className="fixed top-8 left-0 right-0 w-full px-8 flex justify-between items-center pointer-events-none z-40 text-sm font-mono text-zinc-400">
-      <div>Asia/Jakarta</div>
+    <div className="hidden sm:flex fixed top-8 left-0 right-0 w-full px-8 justify-between items-center pointer-events-none z-40 text-sm font-mono text-zinc-600 dark:text-zinc-400">
+      <div>Asia/India</div>
       <div>
         {time.toLocaleTimeString("en-US", {
           hour12: false,

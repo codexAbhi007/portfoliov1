@@ -15,14 +15,15 @@ export default function Home() {
           <span>Featured work</span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white max-w-3xl leading-tight">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-900 dark:text-white max-w-3xl leading-tight">
           Building bridges between design and code
         </h1>
 
-        <p className="text-xl text-zinc-400 max-w-2xl">
+        <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl">
           I&apos;m Selene, a design engineer at{" "}
-          <strong className="text-white">ONCE UI</strong>, where I craft
-          intuitive user experiences. After hours, I build my own projects.
+          <strong className="text-zinc-900 dark:text-white">ONCE UI</strong>,
+          where I craft intuitive user experiences. After hours, I build my own
+          projects.
         </p>
 
         <Link
@@ -34,12 +35,14 @@ export default function Home() {
             <div className="absolute inset-0 bg-linear-to-tr from-cyan-500 to-rose-500 opacity-50" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://avatars.githubusercontent.com/u/1?v=4"
-              alt="Avatar"
+              src="https://github.com/codexAbhi007.png"
+              alt="GitHub Avatar"
               className="w-full h-full object-cover"
             />
           </div>
-          <span className="text-white font-medium">About – Selene Yu</span>
+          <span className="text-zinc-900 dark:text-white font-medium">
+            About – Selene Yu
+          </span>
         </Link>
       </section>
 
@@ -53,7 +56,7 @@ export default function Home() {
 
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 p-8 md:p-12">
             <div className="flex-1 space-y-4">
-              <h2 className="text-2xl md:text-3xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+              <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white group-hover:text-cyan-400 transition-colors">
                 Building Once UI, a Customizable Design System
               </h2>
               <div className="flex items-center gap-2">
@@ -66,7 +69,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <p className="text-sm text-zinc-400 leading-relaxed">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 Development of a flexible and highly customizable design system
                 using Next.js for front-end and Figma for design collaboration.
               </p>
@@ -105,7 +108,7 @@ export default function Home() {
 
       {/* Latest from Blog */}
       <section className="w-full flex flex-col md:flex-row gap-12 border-t border-white/10 pt-16">
-        <h2 className="text-3xl font-bold text-white w-full md:w-1/4">
+        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white w-full md:w-1/4">
           Latest from the blog
         </h2>
         <div className="flex flex-col sm:flex-row gap-8 flex-1">
@@ -124,7 +127,7 @@ export default function Home() {
               href={`/blog/${idx}`}
               className="group flex-1 space-y-4 relative"
             >
-              <div className="flex items-center gap-2 text-sm text-zinc-500">
+              <div className="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-500">
                 <div className="w-5 h-5 rounded-full bg-zinc-800 overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -137,10 +140,12 @@ export default function Home() {
                 <span>•</span>
                 <span>{post.date}</span>
               </div>
-              <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-cyan-400 transition-colors">
                 {post.title}
               </h3>
-              <p className="text-sm text-zinc-500">Magic Portfolio</p>
+              <p className="text-sm text-zinc-700 dark:text-zinc-500">
+                Magic Portfolio
+              </p>
             </Link>
           ))}
         </div>
@@ -149,10 +154,10 @@ export default function Home() {
       {/* Subscribe Section */}
       <section className="w-full mt-8 mb-12">
         <div className="rounded-3xl border border-white/10 bg-linear-to-br from-cyan-950/30 to-zinc-900/50 p-12 text-center max-w-3xl mx-auto flex flex-col items-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+          <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-2">
             Subscribe to Selens Newsletter
           </h2>
-          <p className="text-zinc-400 mb-8 max-w-sm">
+          <p className="text-zinc-600 dark:text-zinc-400 mb-8 max-w-sm">
             My weekly newsletter about creativity and engineering
           </p>
           <form
@@ -164,7 +169,7 @@ export default function Home() {
             <input
               type="email"
               placeholder="Email"
-              className="flex-1 bg-transparent px-4 text-sm text-white outline-none placeholder:text-zinc-500 focus:ring-0"
+              className="flex-1 bg-transparent px-4 text-sm text-zinc-900 dark:text-white outline-none placeholder:text-zinc-700 dark:text-zinc-500 focus:ring-0"
               required
             />
             <button className="bg-white text-black px-6 py-2 rounded-full text-sm font-semibold hover:bg-zinc-200 transition-colors">
@@ -175,22 +180,34 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500 pb-16">
+      <footer className="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-700 dark:text-zinc-500 pb-16">
         <p>
           © 2026 / Selene Yu / Build your portfolio with{" "}
           <strong className="text-cyan-500">Once UI</strong>
         </p>
         <div className="flex gap-4">
-          <Link href="#" className="hover:text-white transition-colors">
+          <Link
+            href="#"
+            className="hover:text-zinc-900 dark:text-white transition-colors"
+          >
             GitHub
           </Link>
-          <Link href="#" className="hover:text-white transition-colors">
+          <Link
+            href="#"
+            className="hover:text-zinc-900 dark:text-white transition-colors"
+          >
             LinkedIn
           </Link>
-          <Link href="#" className="hover:text-white transition-colors">
+          <Link
+            href="#"
+            className="hover:text-zinc-900 dark:text-white transition-colors"
+          >
             Instagram
           </Link>
-          <Link href="#" className="hover:text-white transition-colors">
+          <Link
+            href="#"
+            className="hover:text-zinc-900 dark:text-white transition-colors"
+          >
             Email
           </Link>
         </div>

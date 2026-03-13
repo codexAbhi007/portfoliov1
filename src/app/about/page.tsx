@@ -4,34 +4,37 @@ import { LeetcodeGraph } from "@/components/LeetcodeGraph";
 
 export default function AboutPage() {
   return (
-    <div className="w-full mt-12 flex flex-col lg:flex-row gap-12 relative animate-in fade-in slide-in-from-bottom-8 duration-700 pb-16">
+    <div className="w-full flex flex-col  lg:flex-row gap-12 relative animate-in fade-in slide-in-from-bottom-8 duration-700 pb-16">
       {/* Column 1: Page Navigation (Sticky) */}
       <aside className="hidden lg:flex w-48 flex-col gap-6 sticky top-32 h-fit">
-        <nav className="flex flex-col gap-4 text-sm font-medium text-zinc-500">
+        <nav className="flex flex-col gap-4 text-sm font-medium text-zinc-700 dark:text-zinc-500">
           <Link
             href="#introduction"
-            className="hover:text-white transition-colors relative before:absolute before:-left-4 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-1 before:bg-cyan-500 before:rounded-full text-white"
+            className="hover:text-zinc-900 dark:text-white transition-colors relative before:absolute before:-left-4 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-1 before:bg-cyan-500 before:rounded-full text-zinc-900"
           >
             Introduction
           </Link>
           <Link
             href="#work-experience"
-            className="hover:text-white transition-colors"
+            className="hover:text-zinc-900 dark:text-white transition-colors"
           >
             Work Experience
           </Link>
-          <Link href="#studies" className="hover:text-white transition-colors">
+          <Link
+            href="#studies"
+            className="hover:text-zinc-900 dark:text-white transition-colors"
+          >
             Studies
           </Link>
           <Link
             href="#technical-skills"
-            className="hover:text-white transition-colors"
+            className="hover:text-zinc-900 dark:text-white transition-colors"
           >
             Technical skills
           </Link>
           <Link
             href="#coding-stats"
-            className="hover:text-white transition-colors"
+            className="hover:text-zinc-900 dark:text-white transition-colors"
           >
             Coding Stats
           </Link>
@@ -40,25 +43,39 @@ export default function AboutPage() {
 
       {/* Column 2: Avatar & Basic Info */}
       <aside className="w-full lg:w-48 flex flex-col items-center lg:items-start gap-6 lg:sticky lg:top-32 h-fit">
-        <div className="w-48 h-48 rounded-full bg-zinc-800 overflow-hidden relative border-4 border-zinc-950 shadow-xl shadow-cyan-900/20">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://avatars.githubusercontent.com/u/1?v=4"
-            alt="Avatar"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="flex flex-col items-center lg:items-start gap-4">
-          <div className="flex items-center gap-2 text-zinc-300">
-            <div className="w-2 h-2 rounded-full bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.8)]"></div>
-            Asia/Jakarta
+        {/* Avatar */}
+        <div className="relative w-40 h-40 group">
+          {/* gradient ring */}
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500/40 via-teal-400/30 to-emerald-400/40 blur-md opacity-40 group-hover:opacity-60 transition group-hover:cursor-pointer" />
+
+          {/* avatar container */}
+          <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 bg-zinc-900 shadow-lg">
+            <img
+              src="https://github.com/codexAbhi007.png"
+              alt="GitHub Avatar"
+              className="w-full h-full object-cover"
+            />
           </div>
+        </div>
+
+        {/* Info */}
+        <div className="flex flex-col items-center lg:items-start gap-4">
+          {/* location */}
+          <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+            </span>
+            Asia/India
+          </div>
+
+          {/* languages */}
           <div className="flex gap-2 text-xs font-medium">
-            <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-zinc-300">
+            <span className="px-3 py-1 rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300">
               English
             </span>
-            <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-zinc-300">
-              Bahasa
+            <span className="px-3 py-1 rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300">
+              Hindi
             </span>
           </div>
         </div>
@@ -74,10 +91,12 @@ export default function AboutPage() {
           </button>
 
           <div>
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-2">
-              Selene Yu
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-2">
+              Abhirup Ghosh
             </h1>
-            <h2 className="text-2xl text-zinc-400">Design Engineer</h2>
+            <h2 className="text-2xl text-zinc-600 dark:text-zinc-400">
+              Design Engineer
+            </h2>
           </div>
 
           <div className="flex flex-wrap gap-3">
@@ -92,7 +111,7 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <p className="text-zinc-400 text-base leading-relaxed pt-4">
+          <p className="text-zinc-600 dark:text-zinc-400 text-base leading-relaxed pt-4">
             Selene is a Jakarta-based design engineer with a passion for
             transforming complex challenges into simple, elegant design
             solutions. Her work spans digital interfaces, interactive
@@ -102,18 +121,22 @@ export default function AboutPage() {
 
         {/* Work Experience */}
         <section id="work-experience" className="scroll-mt-32 space-y-10">
-          <h2 className="text-3xl font-bold text-white mb-8">
+          <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-8">
             Work Experience
           </h2>
 
           {/* Job 1 */}
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-              <h3 className="text-xl font-bold text-white">FLY</h3>
-              <span className="text-zinc-500 text-sm">2022 - Present</span>
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+                FLY
+              </h3>
+              <span className="text-zinc-700 dark:text-zinc-500 text-sm">
+                2022 - Present
+              </span>
             </div>
             <p className="text-cyan-400">Senior Design Engineer</p>
-            <ul className="list-disc list-outside ml-4 space-y-2 text-zinc-400 leading-relaxed">
+            <ul className="list-disc list-outside ml-4 space-y-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">
               <li>
                 Redesigned the UI/UX for the FLY platform, resulting in a 20%
                 increase in user engagement and 30% faster load times.
@@ -131,11 +154,15 @@ export default function AboutPage() {
           {/* Job 2 */}
           <div className="space-y-4 pt-4 border-t border-white/5">
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-              <h3 className="text-xl font-bold text-white">Creativ3</h3>
-              <span className="text-zinc-500 text-sm">2018 - 2022</span>
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+                Creativ3
+              </h3>
+              <span className="text-zinc-700 dark:text-zinc-500 text-sm">
+                2018 - 2022
+              </span>
             </div>
             <p className="text-cyan-400">Lead Designer</p>
-            <ul className="list-disc list-outside ml-4 space-y-2 text-zinc-400 leading-relaxed">
+            <ul className="list-disc list-outside ml-4 space-y-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">
               <li>
                 Developed a design system that unified the brand across multiple
                 platforms, improving design consistency by 40%.
@@ -150,20 +177,24 @@ export default function AboutPage() {
 
         {/* Studies */}
         <section id="studies" className="scroll-mt-32 space-y-8">
-          <h2 className="text-3xl font-bold text-white">Studies</h2>
+          <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">
+            Studies
+          </h2>
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-bold text-white">
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
                 University of Jakarta
               </h3>
-              <p className="text-zinc-400 mt-1">
+              <p className="text-zinc-600 dark:text-zinc-400 mt-1">
                 Studied software engineering.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white">Build the Future</h3>
-              <p className="text-zinc-400 mt-1">
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+                Build the Future
+              </h3>
+              <p className="text-zinc-600 dark:text-zinc-400 mt-1">
                 Studied online marketing and personal branding.
               </p>
             </div>
@@ -172,12 +203,16 @@ export default function AboutPage() {
 
         {/* Technical skills */}
         <section id="technical-skills" className="scroll-mt-32 space-y-8">
-          <h2 className="text-3xl font-bold text-white">Technical skills</h2>
+          <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">
+            Technical skills
+          </h2>
 
           {/* Skill 1 */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Figma</h3>
-            <p className="text-zinc-400">
+            <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+              Figma
+            </h3>
+            <p className="text-zinc-600 dark:text-zinc-400">
               Able to prototype in Figma with Once UI with unnatural speed.
             </p>
             <div className="flex items-center gap-2">
@@ -217,8 +252,10 @@ export default function AboutPage() {
 
           {/* Skill 2 */}
           <div className="space-y-4 pt-4 border-t border-white/5">
-            <h3 className="text-xl font-bold text-white">Next.js</h3>
-            <p className="text-zinc-400">
+            <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+              Next.js
+            </h3>
+            <p className="text-zinc-600 dark:text-zinc-400">
               Building next gen apps with Next.js + Once UI + Supabase.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -241,13 +278,15 @@ export default function AboutPage() {
           id="coding-stats"
           className="scroll-mt-32 space-y-6 pt-4 border-t border-white/5"
         >
-          <h2 className="text-3xl font-bold text-white">Coding Stats</h2>
-          <p className="text-zinc-400">
+          <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">
+            Coding Stats
+          </h2>
+          <p className="text-zinc-600 dark:text-zinc-400">
             Tracking my progress and active learning in software development.
           </p>
           <GithubGraph username="codexAbhi007" />{" "}
           {/* Providing a random realistic username to make it render */}
-          <LeetcodeGraph username="mock_user" />
+          <LeetcodeGraph username="codexAbhi007" />
         </section>
       </main>
     </div>
