@@ -70,7 +70,7 @@ export default function Home() {
         <motion.div variants={fadeLeft}>
           <Link
             href="/about"
-            className="relative group inline-flex items-center justify-center rounded-full p-[1.5px] overflow-hidden"
+            className="relative group inline-flex items-center justify-center rounded-full p-[0.1px] overflow-hidden"
           >
             {/* animated border */}
             <span className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,transparent,cyan,transparent)] animate-spin-slow"></span>
