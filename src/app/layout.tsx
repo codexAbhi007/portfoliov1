@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative w-full`}
       >
         <ThemeProvider
           attribute="class"
@@ -38,7 +38,9 @@ export default function RootLayout({
         >
           <HeaderInfo />
           <Navbar />
-          <main className="pt-32 pb-16 px-6 max-w-5xl mx-auto">{children}</main>
+          <main className="pt-32 pb-28 md:pb-16 px-2 max-w-6xl mx-auto">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

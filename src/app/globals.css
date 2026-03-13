@@ -43,3 +43,12 @@ body {
     rgba(9, 9, 11, 1) 70%
   );
 }
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}

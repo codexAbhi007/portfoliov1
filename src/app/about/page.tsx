@@ -1,43 +1,35 @@
 import Link from "next/link";
 import { GithubGraph } from "@/components/GithubGraph";
 import { LeetcodeGraph } from "@/components/LeetcodeGraph";
+import LeetcodeStats from "@/components/LeetcodeStats";
 
 export default function AboutPage() {
   return (
     <div className="w-full flex flex-col  lg:flex-row gap-12 relative animate-in fade-in slide-in-from-bottom-8 duration-700 pb-16">
       {/* Column 1: Page Navigation (Sticky) */}
       <aside className="hidden lg:flex w-48 flex-col gap-6 sticky top-32 h-fit">
-        <nav className="flex flex-col gap-4 text-sm font-medium text-zinc-700 dark:text-zinc-500">
-          <Link
-            href="#introduction"
-            className="hover:text-zinc-900 dark:text-white transition-colors relative before:absolute before:-left-4 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-1 before:bg-cyan-500 before:rounded-full text-zinc-900"
-          >
-            Introduction
-          </Link>
-          <Link
-            href="#work-experience"
-            className="hover:text-zinc-900 dark:text-white transition-colors"
-          >
-            Work Experience
-          </Link>
-          <Link
-            href="#studies"
-            className="hover:text-zinc-900 dark:text-white transition-colors"
-          >
-            Studies
-          </Link>
-          <Link
-            href="#technical-skills"
-            className="hover:text-zinc-900 dark:text-white transition-colors"
-          >
-            Technical skills
-          </Link>
-          <Link
-            href="#coding-stats"
-            className="hover:text-zinc-900 dark:text-white transition-colors"
-          >
-            Coding Stats
-          </Link>
+        <nav className="relative flex flex-col gap-4 text-sm font-medium">
+          {/* vertical line */}
+          <div className="absolute -left-3.5 top-0 bottom-0 w-px bg-white/10"></div>
+
+          {[
+            ["Introduction", "#introduction"],
+            ["Work Experience", "#work-experience"],
+            ["Studies", "#studies"],
+            ["Technical skills", "#technical-skills"],
+            ["Coding Stats", "#coding-stats"],
+          ].map(([label, link], index) => (
+            <Link
+              key={index}
+              href={link}
+              className="group relative text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors pl-2"
+            >
+              {/* cyan dot */}
+              <span className="absolute -left-4.25 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-cyan-500 opacity-0 group-hover:opacity-100 transition" />
+
+              {label}
+            </Link>
+          ))}
         </nav>
       </aside>
 
@@ -46,7 +38,7 @@ export default function AboutPage() {
         {/* Avatar */}
         <div className="relative w-40 h-40 group">
           {/* gradient ring */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500/40 via-teal-400/30 to-emerald-400/40 blur-md opacity-40 group-hover:opacity-60 transition group-hover:cursor-pointer" />
+          <div className="absolute inset-0 rounded-full bg-linear-to-br from-cyan-500/40 via-teal-400/30 to-emerald-400/40 blur-md opacity-40 group-hover:opacity-60 transition group-hover:cursor-pointer" />
 
           {/* avatar container */}
           <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 bg-zinc-900 shadow-lg">
@@ -82,7 +74,7 @@ export default function AboutPage() {
       </aside>
 
       {/* Column 3: Main Content */}
-      <main className="flex-1 max-w-2xl mx-auto lg:mx-0 flex flex-col gap-16">
+      <main className="flex-1 min-w-0 w-full max-w-2xl mx-auto lg:mx-0 flex flex-col gap-16">
         {/* Introduction */}
         <section id="introduction" className="scroll-mt-32 space-y-6">
           <button className="flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-400 text-sm font-medium hover:bg-cyan-900/40 transition-colors">
@@ -244,7 +236,7 @@ export default function AboutPage() {
                 Figma
               </span>
             </div>
-            <div className="flex gap-4 overflow-x-auto pb-4 pt-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="flex gap-4 overflow-x-auto pb-4 pt-2 -mx-4 px-4 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <div className="w-64 h-40 shrink-0 bg-zinc-900 rounded-2xl border border-white/10" />
               <div className="w-64 h-40 shrink-0 bg-zinc-900 rounded-2xl border border-white/10" />
             </div>
@@ -286,7 +278,8 @@ export default function AboutPage() {
           </p>
           <GithubGraph username="codexAbhi007" />{" "}
           {/* Providing a random realistic username to make it render */}
-          <LeetcodeGraph username="codexAbhi007" />
+          {/* <LeetcodeGraph /> */}
+          <LeetcodeStats />
         </section>
       </main>
     </div>

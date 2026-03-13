@@ -29,16 +29,18 @@ export function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-      <nav className="flex items-center gap-2 p-2 rounded-full border border-zinc-200 dark:border-white/10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md shadow-lg shadow-cyan-900/5">
-
+    <div className="fixed bottom-6 top-auto md:top-6 md:bottom-auto left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-max">
+      <nav className="flex items-center justify-center gap-1 md:gap-2 p-2 rounded-full border border-zinc-200 dark:border-white/10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md shadow-lg shadow-cyan-900/5 max-w-full overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {navItems.map((item) => {
           const isActive = pathname === item.path;
           const Icon = item.icon;
@@ -49,7 +51,6 @@ export function Navbar() {
               href={item.path}
               className="relative flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
             >
-
               {/* sliding active background */}
               {isActive && (
                 <motion.span
@@ -71,10 +72,7 @@ export function Navbar() {
                 </span>
               )}
 
-              {item.name === "Home" && (
-                <span className="sr-only">Home</span>
-              )}
-
+              {item.name === "Home" && <span className="sr-only">Home</span>}
             </Link>
           );
         })}
@@ -96,7 +94,6 @@ export function Navbar() {
             <div className="w-4 h-4" />
           )}
         </button>
-
       </nav>
     </div>
   );
