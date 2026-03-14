@@ -8,11 +8,11 @@ import {
   User,
   Briefcase,
   BookOpen,
-  Image,
+
   Sun,
   Moon,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -21,7 +21,6 @@ const navItems = [
   { path: "/about", name: "About", icon: User },
   { path: "/work", name: "Work", icon: Briefcase },
   { path: "/blog", name: "Blog", icon: BookOpen },
-  { path: "/gallery", name: "Gallery", icon: Image },
 ];
 
 export function Navbar() {
@@ -81,7 +80,7 @@ export function Navbar() {
 
         <button
           onClick={toggleTheme}
-          className="p-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors rounded-full"
+          className="p-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors rounded-full hover:cursor-pointer"
           aria-label="Toggle themes"
         >
           {mounted ? (

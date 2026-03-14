@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Selene Yu's Portfolio - Clone",
+  title: "Abhirup's Portfolio",
   description: "Portfolio built with Next.js, Tailwind CSS",
 };
 

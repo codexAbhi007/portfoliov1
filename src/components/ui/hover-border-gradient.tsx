@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
@@ -54,30 +54,31 @@ export function HoverBorderGradient({
       }, duration * 1000);
       return () => clearInterval(interval);
     }
-  }, [hovered]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hovered, duration]);
   return (
     <Tag
-      onMouseEnter={(event: React.MouseEvent<HTMLDivElement>) => {
+      onMouseEnter={() => {
         setHovered(true);
       }}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        "relative flex rounded-full border  content-center bg-black/20 hover:bg-black/10 transition duration-500 dark:bg-white/20 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit",
-        containerClassName
+        "relative flex rounded-full border  content-center bg-black/20 hover:bg-black/10 transition duration-500 dark:bg-white/20 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px box-decoration-clone w-fit",
+        containerClassName,
       )}
       {...props}
     >
       <div
         className={cn(
-          "w-auto text-white z-10 bg-black px-4 py-2 rounded-[inherit]",
-          className
+          "relative z-10 px-5 py-2 rounded-[inherit] flex items-center gap-2",
+          className,
         )}
       >
         {children}
       </div>
       <motion.div
         className={cn(
-          "flex-none inset-0 overflow-hidden absolute z-0 rounded-[inherit]"
+          "flex-none inset-0 overflow-hidden absolute z-0 rounded-[inherit]",
         )}
         style={{
           filter: "blur(2px)",
@@ -93,7 +94,7 @@ export function HoverBorderGradient({
         }}
         transition={{ ease: "linear", duration: duration ?? 1 }}
       />
-      <div className="bg-black absolute z-1 flex-none inset-[2px] rounded-[100px]" />
+      <div className="absolute inset-0.5 rounded-[inherit] bg-white dark:bg-zinc-900 z-0" />
     </Tag>
   );
 }

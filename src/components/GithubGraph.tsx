@@ -1,6 +1,6 @@
 "use client";
 
-import { GitHubCalendar } from "react-github-calendar";
+import {GitHubCalendar} from "react-github-calendar";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -18,14 +18,15 @@ export function GithubGraph({ username }: { username: string }) {
   const isDark = theme === "dark";
 
   return (
-    <div className="w-full p-6 rounded-3xl border border-zinc-200 dark:border-white/10 mt-8 bg-white/30 dark:bg-white/5 backdrop-blur">
+    <div className="w-full p-6 rounded-3xl border border-zinc-200 dark:border-white/10 mt-8 bg-white/40 dark:bg-zinc-900/60 backdrop-blur">
 
+      {/* Title */}
       <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-6">
         GitHub Contributions
       </h3>
 
-      {/* responsive container */}
-      <div className="w-full flex justify-center overflow-hidden">
+      {/* Calendar */}
+      <div className="w-full flex justify-center overflow-hidden text-zinc-800 dark:text-zinc-300">
 
         <div className="w-full flex justify-center scale-[0.85] sm:scale-100 origin-top">
 
@@ -57,7 +58,6 @@ export function GithubGraph({ username }: { username: string }) {
         </div>
 
       </div>
-
     </div>
   );
 }
