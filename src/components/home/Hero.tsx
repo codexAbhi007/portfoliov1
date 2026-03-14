@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { container, fadeLeft } from "./animations";
+import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 
 export default function Hero() {
   return (
@@ -14,41 +15,62 @@ export default function Hero() {
       className="flex flex-col items-center text-center mt-12 mb-8 space-y-6"
     >
       {/* Status badge */}
-      <motion.div
-        variants={fadeLeft}
-        className="flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 backdrop-blur-md text-sm text-cyan-500 dark:text-cyan-400 font-medium"
-      >
-        <span className="bg-cyan-500/20 px-2 py-0.5 rounded-full text-cyan-600 dark:text-cyan-300 text-xs">
-          Portfolio
-        </span>
-        <span>Open to Work</span>
+      <motion.div variants={fadeLeft}>
+        <div className="group relative shadow-sm inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-sm font-medium overflow-hidden">
+          {/* Occasional Shine effect */}
+          <motion.div
+            animate={{ left: ["-100%", "200%"] }}
+            transition={{
+              repeat: Infinity,
+              duration: 1.5,
+              ease: "linear",
+              repeatDelay: 5,
+            }}
+            className="absolute inset-y-0 z-0 w-1/3 bg-gradient-to-r from-transparent via-white/60 dark:via-white/20 to-transparent skew-x-[-20deg]"
+          />
+
+          <span className="relative flex h-2 w-2 z-10">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span className="text-cyan-800 dark:text-cyan-300 z-10">
+            Looking for opportunities
+          </span>
+        </div>
       </motion.div>
 
       {/* Title */}
-      <motion.h1
+      <motion.div
         variants={fadeLeft}
-        className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-900 dark:text-white max-w-3xl leading-tight"
+        className="w-full max-w-4xl text-center leading-tight min-h-[5rem] sm:min-h-[6rem] flex flex-col justify-center items-center"
       >
-        Building software that connects ideas and technology
-      </motion.h1>
+        <LayoutTextFlip
+          text="16 Bits of a"
+          words={["Developer", "Problem Solver", "Creator", "Student","Content Writer"]}
+          className="justify-center flex-wrap"
+          textClassName="text-cyan-600 dark:text-cyan-400"
+          wordContainerClassName="bg-white/80 dark:bg-zinc-800 text-zinc-900 dark:text-white ring-zinc-200 dark:ring-zinc-700/50 backdrop-blur"
+        />
+      </motion.div>
 
       {/* Description */}
-      <motion.p
+      <motion.div 
         variants={fadeLeft}
-        className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl"
+        className="w-full max-w-2xl px-4"
       >
-        I am <strong className="text-zinc-900 dark:text-white">Abhirup Ghosh</strong>,  
-        a Computer Science student focused on building scalable web applications,
-        exploring AI/ML, and constantly learning new technologies.
-      </motion.p>
+        <p className="text-zinc-600 dark:text-zinc-400 font-normal text-base sm:text-base md:text-lg lg:text-lg xl:text-xl text-center leading-relaxed">
+          I am <span className="font-bold text-zinc-900 dark:text-white">Abhirup Ghosh,</span> a Computer Science student focused on building scalable web applications, exploring AI/ML, and constantly learning new technologies.
+        </p>
+      </motion.div>
 
       {/* About button */}
       <motion.div variants={fadeLeft}>
         <Link href="/about">
           <HoverBorderGradient
             containerClassName="rounded-full"
-            as="div"
-            className="bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-white font-medium px-5 py-2"
+            as="button"
+            className="dark:bg-black bg-white text-black
+             dark:text-white flex items-center space-x-2 hover:cursor-pointer"
           >
             About Me
           </HoverBorderGradient>

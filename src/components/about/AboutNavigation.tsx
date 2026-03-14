@@ -1,9 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeLeft } from "@/components/home/animations";
 
 export function AboutNavigation() {
   return (
     <aside className="hidden lg:flex w-48 flex-col gap-6 sticky top-32 h-fit">
-      <nav className="relative flex flex-col gap-4 text-sm font-medium">
+      <motion.nav
+        variants={fadeLeft}
+        initial="hidden"
+        animate="show"
+        className="relative flex flex-col gap-4 text-sm font-medium"
+      >
         <div className="absolute -left-3.5 top-0 bottom-0 w-px bg-white/10"></div>
 
         {[
@@ -22,7 +31,7 @@ export function AboutNavigation() {
             {label}
           </Link>
         ))}
-      </nav>
+      </motion.nav>
     </aside>
   );
 }

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
-// import { HeaderInfo } from "@/components/HeaderInfo";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 import { HeaderInfo } from "@/components/HeaderInfo";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +28,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (!sessionStorage.getItem('tabVisited')) {
+                sessionStorage.setItem('tabVisited', 'true');
+                if (window.location.pathname === '/') {
+                  window.location.replace('/about');
+                }
+              }
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative w-full`}
       >
@@ -41,6 +55,7 @@ export default function RootLayout({
           <main className="pt-32 pb-28 md:pb-16 px-2 max-w-6xl mx-auto">
             {children}
           </main>
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>
