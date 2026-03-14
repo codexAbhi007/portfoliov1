@@ -32,19 +32,21 @@ export default function LeetcodeStats() {
   }
 
   return (
-    <div className="relative p-8 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/40 dark:bg-zinc-900/60 backdrop-blur">
+    <div className="relative px-6 py-4 rounded-2xl border border-zinc-200
+     dark:border-white/10 bg-white/40 dark:bg-zinc-900/60 backdrop-blur">
       {/* Rank top right */}
-      <div className="absolute top-6 right-6 text-right">
-        <p className="text-xs text-zinc-500 dark:text-zinc-400">Global Rank</p>
-        <p className="text-lg font-semibold text-zinc-900 dark:text-white">
-          #{data.ranking}
-        </p>
-      </div>
+    
 
       {/* Title */}
-      <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-10">
-        LeetCode Stats
-      </h3>
+      <div className="text-xl font-semibold text-zinc-900 dark:text-white mb-10 flex justify-between w-full">
+        <p>Leetcode Stats</p>
+        <div>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400">Global Rank</p>
+         <p className="text-lg font-semibold text-zinc-900 dark:text-white">
+          #{data.ranking}
+          </p>
+        </div>
+      </div>
 
       <div className="flex flex-col md:flex-row gap-12 justify-center">
         {/* Total Circle */}
@@ -81,7 +83,6 @@ export default function LeetcodeStats() {
             color="#FF375F"
           />
         </div>
-
       </div>
     </div>
   );
