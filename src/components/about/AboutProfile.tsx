@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeLeft } from "@/components/home/animations";
+import Image from "next/image";
 
 export function AboutProfile() {
   return (
@@ -17,11 +18,13 @@ export function AboutProfile() {
           <div className="absolute inset-0 rounded-full bg-linear-to-br from-emerald-500/40 via-teal-400/30 to-emerald-400/40 blur-md opacity-40 group-hover:opacity-60 transition" />
 
           <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 bg-zinc-900 shadow-lg">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/p1.jpeg"
               alt="Abhirup Avatar"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 160px) 100vw, 160px"
+              priority
             />
           </div>
         </div>

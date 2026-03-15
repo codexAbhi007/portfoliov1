@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function BlogPostLoading() {
   return (
     <div className="container mx-auto py-12 px-4 animate-in fade-in duration-500">
-      <Skeleton className="w-full max-w-5xl mx-auto h-[400px] mb-12 rounded-2xl" />
+      <Skeleton className="w-full max-w-5xl mx-auto h-100 mb-12 rounded-2xl" />
 
       <div className="max-w-5xl mx-auto mb-10 text-center space-y-6">
         <Skeleton className="h-14 w-3/4 mx-auto" />
@@ -15,7 +15,7 @@ export default function BlogPostLoading() {
       </div>
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 relative">
-        <div className="sticky top-24 hidden lg:block pr-6 shrink-0 w-[250px] space-y-4">
+        <div className="sticky top-24 hidden lg:block pr-6 shrink-0 w-62.5 space-y-4">
           <Skeleton className="h-6 w-40" />
           <Skeleton className="h-4 w-full" />
           <Skeleton className="h-4 w-full" />

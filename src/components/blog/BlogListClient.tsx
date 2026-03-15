@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
+import Image from "next/image";
 import { Eye, Calendar, BookOpen } from "lucide-react";
 
 type Category = { id: number; name: string; slug: string };
@@ -97,7 +98,7 @@ export default function BlogListClient({
 
         <div className="flex gap-3">
           <Select value={activeCategory} onValueChange={setActiveCategory}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-45">
               <SelectValue placeholder="All Categories" />
             </SelectTrigger>
 
@@ -113,7 +114,7 @@ export default function BlogListClient({
           </Select>
 
           <Select value={sortBy} onValueChange={setSortBy}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-45">
               <SelectValue placeholder="Most Recent" />
             </SelectTrigger>
 
@@ -130,14 +131,19 @@ export default function BlogListClient({
         <Link href={`/blog/${featured.slug}`}>
           <div className="grid md:grid-cols-2 gap-10 items-center group">
             {/* Image */}
-            <div className="overflow-hidden rounded-2xl">
-              <img
+            <div className="overflow-hidden rounded-2xl relative aspect-16/10">
+              <Image
                 src={featured.image || "/placeholder.png"}
-                className="w-full object-cover aspect-[16/10] transition-transform duration-500 group-hover:scale-105"
+                alt={featured.title}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
 
-            <div className="space-y-4">
+            {/* Content */}
+            <div className="space-y-6">
               {/* Categories */}
               <div className="flex flex-wrap gap-2">
                 {featured.categories?.map((cat) => (
@@ -186,10 +192,13 @@ export default function BlogListClient({
           <Link key={blog.id} href={`/blog/${blog.slug}`}>
             <article className="group space-y-3 transition-all duration-300 hover:-translate-y-1">
               {/* Image */}
-              <div className="overflow-hidden rounded-xl">
-                <img
+              <div className="overflow-hidden rounded-xl relative">
+                <Image
+                  alt={blog.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   src={blog.image || "/placeholder.png"}
-                  className="object-cover aspect-[16/10] w-full transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover aspect-16/10 w-full transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 

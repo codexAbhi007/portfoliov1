@@ -26,7 +26,7 @@ export default function Hero() {
               ease: "linear",
               repeatDelay: 5,
             }}
-            className="absolute inset-y-0 z-0 w-1/3 bg-gradient-to-r from-transparent via-white/60 dark:via-white/20 to-transparent skew-x-[-20deg]"
+            className="absolute inset-y-0 z-0 w-1/3 bg-linear-to-r from-transparent via-white/60 dark:via-white/20 to-transparent skew-x-[-20deg]"
           />
 
           <span className="relative flex h-2 w-2 z-10">
@@ -42,7 +42,7 @@ export default function Hero() {
       {/* Title */}
       <motion.div
         variants={fadeLeft}
-        className="w-full max-w-4xl text-center leading-tight min-h-[5rem] sm:min-h-[6rem] flex flex-col justify-center items-center"
+        className="w-full max-w-4xl text-center leading-tight min-h-20 sm:min-h-24 flex flex-col justify-center items-center"
       >
         <LayoutTextFlip
           text="16 Bits of a"

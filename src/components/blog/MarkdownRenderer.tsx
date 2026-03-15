@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -8,7 +7,9 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
-import { Copy } from "lucide-react";
+import { Copy, Check } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 import "katex/dist/katex.min.css";
 import "highlight.js/styles/github-dark.css";
 
@@ -29,7 +30,9 @@ function extractTextFromNode(node: React.ReactNode): string {
     typeof node.props === "object" &&
     "children" in node.props
   ) {
-    return extractTextFromNode((node.props as { children: React.ReactNode }).children);
+    return extractTextFromNode(
+      (node.props as { children: React.ReactNode }).children,
+    );
   }
 
   return "";
@@ -51,26 +54,28 @@ function generateId(text: string) {
 /* -------------------------------- */
 
 function CodeBlock({ children }: { children: React.ReactNode }) {
+  const [isCopied, setIsCopied] = useState(false);
   const code = extractTextFromNode(children);
 
   const copy = async () => {
     await navigator.clipboard.writeText(code);
+    setIsCopied(true);
+    toast.success("Code copied to clipboard");
+    setTimeout(() => setIsCopied(false), 2000);
   };
 
   return (
     <div className="relative group">
-
       <button
         onClick={copy}
-        className="absolute right-3 top-3 opacity-0 group-hover:opacity-100 text-xs bg-muted px-2 py-1 rounded-md transition"
+        className={`absolute right-3 top-3 opacity-0 group-hover:opacity-100 text-xs px-2 py-1 rounded-md transition ${isCopied ? "bg-emerald-500/10 text-emerald-500" : "bg-transparent text-zinc-400 hover:text-zinc-200 hover:bg-white/10"}`}
       >
-        <Copy size={14} />
+        {isCopied ? <Check size={14} /> : <Copy size={14} />}
       </button>
 
-      <pre className="overflow-x-auto rounded-lg">
+      <pre className="overflow-x-auto rounded-lg bg-transparent!">
         <code>{children}</code>
       </pre>
-
     </div>
   );
 }
@@ -80,7 +85,6 @@ function CodeBlock({ children }: { children: React.ReactNode }) {
 /* -------------------------------- */
 
 const components = {
-
   /* H1 */
 
   h1: ({ children }: any) => {
@@ -145,22 +149,15 @@ const components = {
 
     return <CodeBlock>{children}</CodeBlock>;
   },
-
 };
 
 /* -------------------------------- */
 /* Main Renderer */
 /* -------------------------------- */
 
-export default function MarkdownRenderer({
-  content,
-}: {
-  content: string;
-}) {
-
+export default function MarkdownRenderer({ content }: { content: string }) {
   return (
     <div className="prose prose-neutral dark:prose-invert max-w-none">
-
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeRaw, rehypeKatex, rehypeHighlight]}
@@ -168,8 +165,6 @@ export default function MarkdownRenderer({
       >
         {content}
       </ReactMarkdown>
-
     </div>
   );
 }
-

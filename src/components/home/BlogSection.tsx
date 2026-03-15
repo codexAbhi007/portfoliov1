@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { getLatestBlogsForHome } from "@/app/actions/blog";
 import { Calendar, Eye, BookOpen, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 type BlogInfo = {
   id: number;
@@ -89,15 +90,17 @@ export default function BlogSection() {
               <Link href={`/blog/${post.slug}`}>
                 <article className="group space-y-4 transition-all duration-300 hover:-translate-y-1">
                   {/* Image */}
-                  <div className="overflow-hidden rounded-xl bg-muted">
+                  <div className="overflow-hidden rounded-xl bg-muted relative aspect-16/10">
                     {post.image ? (
-                      <img
+                      <Image
                         src={post.image}
                         alt={post.title}
-                        className="object-cover aspect-[16/10] w-full transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
-                      <div className="flex items-center justify-center aspect-[16/10] w-full bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
+                      <div className="flex items-center justify-center aspect-16/10 w-full bg-linear-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
                         <span className="text-muted-foreground opacity-50 font-bold text-4xl">
                           {post.title.charAt(0)}
                         </span>

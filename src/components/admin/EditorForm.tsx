@@ -16,6 +16,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
 import "katex/dist/katex.min.css"; // Ensure this works or needs to go in globals
+import Image from "next/image";
 
 function slugify(text: string) {
   return text
@@ -174,11 +175,13 @@ export default function EditorForm({
                 Cover Image
               </label>
               {image ? (
-                <div className="relative">
-                  <img
+                <div className="relative aspect-video w-full rounded-md overflow-hidden">
+                  <Image
                     src={image}
                     alt="Cover"
-                    className="w-full h-auto rounded-md object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <Button
                     variant="destructive"

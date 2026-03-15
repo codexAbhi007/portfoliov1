@@ -164,3 +164,19 @@ html {
   }
 }
 
+input[type="file"]::file-selector-button {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #e5e5e5;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dark input[type="file"]::file-selector-button {
+  background: #18181b;
+  color: #ffffff;
+  border: 1px solid #3f3f46;
+}
+
+.hljs { background: transparent !important; }
