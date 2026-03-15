@@ -4,13 +4,32 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaXTwitter, FaThreads } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
+import { Share2 } from "lucide-react";
+import { toast } from "sonner";
 
 export function GlobalFooter() {
+  const handleShare = () => {
+    if (typeof window !== "undefined") {
+      navigator.clipboard.writeText(window.location.href);
+      toast.success("Link copied to clipboard!", {
+        description: "You can now share this page with others.",
+      });
+    }
+  };
+
   return (
     <footer className="w-full border-t border-black/10 dark:border-white/10 pt-8 mt-16 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-700 dark:text-zinc-500 pb-20 md:pb-16 max-w-6xl mx-auto px-4 lg:px-0">
-      <p>
-        © {new Date().getFullYear()} / Abhirup Ghosh
-      </p>
+      <div className="flex items-center gap-2">
+        <p>© {new Date().getFullYear()} / Abhirup Ghosh</p>
+        <button
+          onClick={handleShare}
+          className="p-1.5 rounded-md border border-transparent hover:border-emerald-500/30 bg-transparent hover:bg-emerald-500/10 transition-all group active:scale-95 hover:cursor-pointer"
+          aria-label="Share this page"
+          title="Share this page"
+        >
+          <Share2 className="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-500 transition-colors" />
+        </button>
+      </div>
 
       {/* SOCIAL ICONS */}
       <div className="flex items-center gap-4">

@@ -6,6 +6,7 @@ import "./globals.css";
 import { HeaderInfo } from "@/components/HeaderInfo";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { GlobalFooter } from "@/components/GlobalFooter";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,7 @@ export default function RootLayout({
           </main>
           <GlobalFooter />
           <ScrollToTop />
+          <Toaster position="bottom-right" />
         </ThemeProvider>
       </body>
     </html>

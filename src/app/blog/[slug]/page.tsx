@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, Eye } from "lucide-react";
 import Image from "next/image";
 import { BackButton } from "@/components/ui/back-button";
+import ShareBlogButton from "@/components/blog/ShareBlogButton";
 
 function formatDate(date: string | Date | null) {
   if (!date) return "";
@@ -73,12 +74,17 @@ export default async function BlogPostPage({
           </div>
 
           {/* categories */}
-          <div className="flex justify-center flex-wrap gap-2">
+          <div className="flex justify-center flex-wrap gap-2 mb-6">
             {blog.categories?.map((cat) => (
               <Badge key={cat.id} variant="secondary">
                 {cat.name}
               </Badge>
             ))}
+          </div>
+
+          {/* share */}
+          <div className="flex justify-center">
+            <ShareBlogButton />
           </div>
         </div>
 
