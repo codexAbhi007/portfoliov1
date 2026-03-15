@@ -86,7 +86,7 @@ export default function ContactSection() {
                   />
                 </svg>
               </div>
-              <p>hello@abhirup.dev</p>
+              <p>codewithabhi2024@gmail.com</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -110,7 +110,7 @@ export default function ContactSection() {
                   />
                 </svg>
               </div>
-              <p>West Bengal, India</p>
+              <p>Kolkata, India</p>
             </div>
           </div>
         </div>

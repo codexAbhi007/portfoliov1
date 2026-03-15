@@ -66,7 +66,7 @@ export function GlobalFooter() {
         </Link>
 
         <Link
-          href="mailto:hello@abhirup.dev"
+          href="mailto:codewithabhi2024@gmail.com"
           className="p-2 rounded-lg border border-transparent hover:border-red-500/30 bg-transparent hover:bg-red-500/10 transition group"
         >
           <SiGmail className="w-4 h-4 text-zinc-500 group-hover:text-red-500 transition" />

@@ -27,7 +27,7 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="w-full flex justify-center"
+        className="w-full flex justify-center max-w-6xl px-2 md:px-20"
       >
         <BlogSection />
       </motion.div>
@@ -37,7 +37,7 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="w-full flex justify-center"
+        className="w-full flex justify-center max-w-6xl px-2 md:px-20"
       >
         <ContactSection />
       </motion.div>

@@ -60,7 +60,7 @@ export default function BlogSection() {
           variants={fadeLeft}
           className="text-3xl font-bold text-zinc-900 dark:text-white"
         >
-          Explore my latest blogs on technology
+          Explore My Latest Blogs 
         </motion.h2>
 
         <motion.div variants={fadeLeft}>

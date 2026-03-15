@@ -34,7 +34,7 @@ export default async function BlogPostPage({
       <ScrollProgress />
       <ViewCounter slug={blog.slug} />
 
-      <div className="max-w-7xl mx-auto px-6 pt-10 pb-24">
+      <div className="max-w-7xl mx-auto px-6 pt-10 pb-24 overflow-x-hidden">
         <BackButton fallbackHref="/blog" forceAction />
 
         {/* HERO */}
@@ -96,7 +96,7 @@ export default async function BlogPostPage({
           </aside>
 
           {/* ARTICLE */}
-          <article className="col-span-12 lg:col-span-9 max-w-3xl">
+          <article className="col-span-12 lg:col-span-9 max-w-3xl min-w-0">
             <div className="prose prose-neutral dark:prose-invert max-w-none">
               <MarkdownRenderer content={blog.content} />
             </div>

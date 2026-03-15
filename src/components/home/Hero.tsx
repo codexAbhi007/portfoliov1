@@ -46,7 +46,13 @@ export default function Hero() {
       >
         <LayoutTextFlip
           text="16 Bits of a"
-          words={["Developer", "Problem Solver", "Creator", "Student","Content Writer"]}
+          words={[
+            "Developer",
+            "Problem Solver",
+            "Creator",
+            "Student",
+            "Content Writer",
+          ]}
           className="justify-center flex-wrap"
           textClassName="text-emerald-600 dark:text-emerald-400"
           wordContainerClassName="bg-white/80 dark:bg-zinc-800 text-zinc-900 dark:text-white ring-zinc-200 dark:ring-zinc-700/50 backdrop-blur"
@@ -54,28 +60,47 @@ export default function Hero() {
       </motion.div>
 
       {/* Description */}
-      <motion.div 
-        variants={fadeLeft}
-        className="w-full max-w-2xl px-4"
-      >
+      <motion.div variants={fadeLeft} className="w-full max-w-2xl px-4">
         <p className="text-zinc-600 dark:text-zinc-400 font-normal text-base sm:text-base md:text-lg lg:text-lg xl:text-xl text-center leading-relaxed">
-          I am <span className="font-bold text-zinc-900 dark:text-white">Abhirup Ghosh,</span> a Computer Science student focused on building scalable web applications, exploring AI/ML, and constantly learning new technologies.
+          I am{" "}
+          <span className="font-bold text-zinc-900 dark:text-white">
+            Abhirup Ghosh,
+          </span>{" "}
+          a Computer Science student focused on building scalable web
+          applications, exploring AI/ML, and constantly learning new
+          technologies.
         </p>
       </motion.div>
 
       {/* About button */}
-      <motion.div variants={fadeLeft}>
-        <Link href="/about">
-          <HoverBorderGradient
-            containerClassName="rounded-full"
-            as="button"
-            className="dark:bg-black bg-white text-black
-             dark:text-white flex items-center space-x-2 hover:cursor-pointer"
-          >
-            About Me
-          </HoverBorderGradient>
-        </Link>
-      </motion.div>
+
+
+<motion.div
+  variants={fadeLeft}
+  whileHover={{ scale: 1.08, y: -2 }}
+  whileTap={{ scale: 0.96 }}
+  transition={{ type: "spring", stiffness: 350 }}
+>
+  <Link href="/about">
+    <HoverBorderGradient
+      containerClassName="rounded-full"
+      as="button"
+      className="
+        backdrop-blur-xl
+        bg-white/10
+        dark:bg-white/5
+        border border-white/20
+        shadow-lg
+        px-6 py-2
+        text-black dark:text-white
+        flex items-center space-x-2
+        hover:cursor-pointer
+      "
+    >
+      About Me
+    </HoverBorderGradient>
+  </Link>
+</motion.div>
     </motion.section>
   );
 }

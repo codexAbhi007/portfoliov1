@@ -65,17 +65,17 @@ function CodeBlock({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="relative group">
+    <div className="relative group w-full overflow-hidden my-4 rounded-lg bg-zinc-950/50 border border-white/5">
       <button
         onClick={copy}
-        className={`absolute right-3 top-3 opacity-0 group-hover:opacity-100 text-xs px-2 py-1 rounded-md transition ${isCopied ? "bg-emerald-500/10 text-emerald-500" : "bg-transparent text-zinc-400 hover:text-zinc-200 hover:bg-white/10"}`}
+        className={`absolute right-3 top-3 opacity-0 group-hover:opacity-100 z-10 text-xs px-2 py-1 rounded-md transition ${isCopied ? "bg-emerald-500/10 text-emerald-500" : "bg-transparent text-zinc-400 hover:text-zinc-200 hover:bg-white/10"}`}
       >
         {isCopied ? <Check size={14} /> : <Copy size={14} />}
       </button>
 
-      <pre className="overflow-x-auto rounded-lg bg-transparent!">
-        <code>{children}</code>
-      </pre>
+      <div className="overflow-x-auto p-4 [&>pre]:!bg-transparent [&>pre]:!p-0 [&>pre]:!m-0 ">
+        {children}
+      </div>
     </div>
   );
 }
@@ -144,10 +144,31 @@ const components = {
 
   /* Code blocks */
 
-  code({ inline, children }: any) {
-    if (inline) return <code>{children}</code>;
+  pre({ children }: any) {
+    return (
+      <CodeBlock>
+        <pre>{children}</pre>
+      </CodeBlock>
+    );
+  },
 
-    return <CodeBlock>{children}</CodeBlock>;
+  code({ inline, className, children, ...props }: any) {
+    if (inline) {
+      return (
+        <code
+          className="bg-muted px-1.5 py-0.5 rounded-md text-emerald-500 font-mono text-sm break-words"
+          {...props}
+        >
+          {children}
+        </code>
+      );
+    }
+    // Block code gets handled by pre, but we return a styled code here
+    return (
+      <code className={`${className} font-mono text-sm `} {...props}>
+        {children}
+      </code>
+    );
   },
 };
 
@@ -157,7 +178,7 @@ const components = {
 
 export default function MarkdownRenderer({ content }: { content: string }) {
   return (
-    <div className="prose prose-neutral dark:prose-invert max-w-none">
+    <div className="prose prose-neutral dark:prose-invert max-w-none w-full overflow-hidden break-words">
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeRaw, rehypeKatex, rehypeHighlight]}

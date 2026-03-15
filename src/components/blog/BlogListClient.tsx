@@ -90,7 +90,7 @@ export default function BlogListClient({
       {/* FILTER BAR */}
       <div className="flex flex-col md:flex-row justify-between gap-4">
         <Input
-          placeholder="Search articles..."
+          placeholder="Search blogs..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="max-w-sm"
