@@ -46,12 +46,11 @@ export default async function BlogPage() {
       {/* HERO */}
       <div className="space-y-4">
         <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
-          Writing about design and tech...
+          Expressing My Thoughts
         </h1>
 
         <p className="text-muted-foreground max-w-xl">
-          Thoughts, tutorials and experiments around web development,
-          engineering and building things on the internet.
+          I always wanted to share my knowledge and experiences with the world, and blogging is the perfect way to do that. Here, I write about programming, technology, and anything else that piques my interest. It&apos;s a space where I can connect with like-minded individuals and contribute to the tech community.
         </p>
       </div>
 

@@ -1,7 +1,7 @@
 export function AboutExperience() {
   return (
     <section id="work-experience" className="scroll-mt-32 space-y-8">
-      <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">
+      <h2 className="text-3xl font-bold text-zinc-900 dark:text-white text-center md:text-left">
         Projects & Experience
       </h2>
 

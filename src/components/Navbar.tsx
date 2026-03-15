@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 const navItems = [
   { path: "/", name: "Home", icon: Home },
   { path: "/about", name: "About", icon: User },
-  { path: "/work", name: "Work", icon: Briefcase },
+  // { path: "/work", name: "Work", icon: Briefcase },
   { path: "/blog", name: "Blog", icon: BookOpen },
 ];
 
@@ -30,7 +30,7 @@ export function Navbar() {
   };
 
   return (
-    <div className="fixed bottom-6 top-auto md:top-6 md:bottom-auto left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-max">
+    <div className="fixed bottom-6 top-auto md:top-6 md:bottom-auto left-1/2 -translate-x-1/2 z-50 w-auto md:w-max">
       <nav className="flex items-center justify-center gap-1 md:gap-2 p-2 rounded-full border border-zinc-200 dark:border-white/10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md shadow-lg shadow-emerald-900/30 max-w-full overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {navItems.map((item) => {
           const isActive = pathname === item.path;

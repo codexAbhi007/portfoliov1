@@ -6,17 +6,17 @@ export function AboutIntroduction() {
   return (
     <section id="introduction" className="scroll-mt-32 space-y-6">
       <div>
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-2">
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-2 text-center md:text-left">
           Abhirup Ghosh
         </h1>
 
-        <h2 className="text-xl text-zinc-600 dark:text-zinc-400">
+        <h2 className="text-xl text-zinc-600 dark:text-zinc-400 text-center md:text-left">
           Full-Stack Developer • Problem Solver • Technical Content Writer
         </h2>
       </div>
 
       {/* SOCIAL ICONS */}
-      <div className="flex items-center gap-4 pt-2">
+      <div className="flex items-center gap-4 pt-2 justify-center md:justify-start">
         <Link
           href="https://github.com/codexAbhi007"
           target="_blank"
@@ -57,7 +57,7 @@ export function AboutIntroduction() {
         </Link>
       </div>
 
-      <p className="text-zinc-600 dark:text-zinc-400 text-base leading-relaxed pt-4">
+      <p className="text-zinc-600 dark:text-zinc-400 text-base leading-relaxed pt-4 text-center md:text-left max-w-2xl mx-auto">
         I&apos;m a Computer Science student passionate about building scalable
         software, solving complex problems, and exploring technologies like
         Artifical Intelligence, Machine Learning, Deep Learning. I have over 2

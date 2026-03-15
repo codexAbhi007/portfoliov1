@@ -6,7 +6,7 @@ import { FiExternalLink } from "react-icons/fi";
 export function AboutEducation() {
   return (
     <section id="studies" className="scroll-mt-32 space-y-8">
-      <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">
+      <h2 className="text-3xl font-bold text-zinc-900 dark:text-white text-center md:text-left">
         Education
       </h2>
 

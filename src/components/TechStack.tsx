@@ -52,7 +52,7 @@ export default function TechStack() {
   return (
     <section className="w-full space-y-8 scroll-mt-32" id="technical-skills">
       {/* Header */}
-      <div>
+      <div className="text-center md:text-left">
         <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">
           Tech Stack
         </h2>

@@ -108,7 +108,7 @@ export default function EditorForm({
           </TabsList>
           <TabsContent value="editor">
             <Textarea
-              className="min-h-[600px] font-mono"
+              className="min-h-150 font-mono"
               placeholder="Write your markdown here... Use $ for inline math, $$ for block math."
               value={content}
               onChange={(e) => setContent(e.target.value)}
@@ -116,7 +116,7 @@ export default function EditorForm({
           </TabsContent>
           <TabsContent value="preview">
             <Card>
-              <CardContent className="prose prose-neutral dark:prose-invert max-w-none p-6 min-h-[600px]">
+              <CardContent className="prose prose-neutral dark:prose-invert max-w-none p-6 min-h-150">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm, remarkMath]}
                   rehypePlugins={[rehypeRaw, rehypeKatex]}
