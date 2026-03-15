@@ -3,15 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import {
-  Home,
-  User,
-  Briefcase,
-  BookOpen,
-
-  Sun,
-  Moon,
-} from "lucide-react";
+import { Home, User, Briefcase, BookOpen, Sun, Moon } from "lucide-react";
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -49,8 +41,8 @@ export function Navbar() {
               key={item.path}
               href={item.path}
               className={`relative flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                isActive 
-                  ? "text-emerald-600 dark:text-emerald-400" 
+                isActive
+                  ? "text-emerald-600 dark:text-emerald-400"
                   : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
               }`}
             >
