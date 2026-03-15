@@ -39,7 +39,7 @@ export function Navbar() {
 
   return (
     <div className="fixed bottom-6 top-auto md:top-6 md:bottom-auto left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-max">
-      <nav className="flex items-center justify-center gap-1 md:gap-2 p-2 rounded-full border border-zinc-200 dark:border-white/10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md shadow-lg shadow-cyan-900/5 max-w-full overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <nav className="flex items-center justify-center gap-1 md:gap-2 p-2 rounded-full border border-zinc-200 dark:border-white/10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md shadow-lg shadow-emerald-900/30 max-w-full overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {navItems.map((item) => {
           const isActive = pathname === item.path;
           const Icon = item.icon;
@@ -48,13 +48,17 @@ export function Navbar() {
             <Link
               key={item.path}
               href={item.path}
-              className="relative flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              className={`relative flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-colors ${
+                isActive 
+                  ? "text-emerald-600 dark:text-emerald-400" 
+                  : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+              }`}
             >
               {/* sliding active background */}
               {isActive && (
                 <motion.span
                   layoutId="nav-pill"
-                  className="absolute inset-0 rounded-full bg-zinc-200/70 dark:bg-white/10"
+                  className="absolute inset-0 rounded-full bg-zinc-200 dark:bg-white/10"
                   transition={{
                     type: "spring",
                     stiffness: 500,

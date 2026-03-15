@@ -2,7 +2,7 @@
 
 import { db } from "@/lib/db";
 import { blogs, blogCategories, categories } from "@/schema";
-import { count, eq, desc } from "drizzle-orm";
+import { count, eq, desc, sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 export type BlogData = {
@@ -40,6 +40,34 @@ export async function createBlog(data: BlogData) {
   }
 }
 
+export async function getLatestBlogsForHome() {
+  try {
+    const latest = await db
+      .select({
+        id: blogs.id,
+        title: blogs.title,
+        slug: blogs.slug,
+        excerpt: blogs.excerpt,
+        image: blogs.image,
+        readTime: blogs.readTime,
+        views: blogs.views,
+        createdAt: blogs.createdAt,
+      })
+      .from(blogs)
+      .orderBy(desc(blogs.createdAt))
+      .limit(2);
+
+    // Convert dates to string to guarantee plain object serialization over server actions
+    return latest.map((blog) => ({
+      ...blog,
+      createdAt: blog.createdAt ? new Date(blog.createdAt).toISOString() : null,
+    }));
+  } catch (error) {
+    console.error("Failed to fetch latest blogs", error);
+    return [];
+  }
+}
+
 export async function getBlogs() {
   try {
     const allBlogs = await db
@@ -62,15 +90,30 @@ export async function getBlogById(id: number) {
       .select({
         id: categories.id,
         name: categories.name,
+        slug: categories.slug,
       })
       .from(blogCategories)
-      .leftJoin(categories, eq(blogCategories.categoryId, categories.id))
+      .innerJoin(categories, eq(blogCategories.categoryId, categories.id))
       .where(eq(blogCategories.blogId, id));
 
     return { ...blog, categories: categoriesData };
   } catch (error) {
     console.error("Failed to get blog", error);
     return null;
+  }
+}
+
+export async function incrementBlogViews(slug: string) {
+  try {
+    const [blog] = await db.select().from(blogs).where(eq(blogs.slug, slug));
+    if (blog) {
+      await db
+        .update(blogs)
+        .set({ views: (blog.views || 0) + 1 })
+        .where(eq(blogs.slug, slug));
+    }
+  } catch (error) {
+    console.error("Failed to increment views", error);
   }
 }
 
@@ -86,7 +129,7 @@ export async function getBlogBySlug(slug: string) {
         slug: categories.slug,
       })
       .from(blogCategories)
-      .leftJoin(categories, eq(blogCategories.categoryId, categories.id))
+      .innerJoin(categories, eq(blogCategories.categoryId, categories.id))
       .where(eq(blogCategories.blogId, blog.id));
 
     return { ...blog, categories: categoriesData };

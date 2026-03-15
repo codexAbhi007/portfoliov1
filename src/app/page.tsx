@@ -13,7 +13,7 @@ export default function Home() {
     <div className="flex flex-col gap-24 items-center w-full">
       <Hero />
 
-      <motion.div
+      {/* <motion.div
         variants={fadeLeft}
         initial="hidden"
         whileInView="show"
@@ -21,7 +21,7 @@ export default function Home() {
         className="w-full flex justify-center"
       >
         <FeaturedProject />
-      </motion.div>
+      </motion.div> */}
 
       <motion.div
         variants={fadeLeft}

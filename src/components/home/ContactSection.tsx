@@ -17,7 +17,7 @@ export default function ContactSection() {
         variants={fadeLeft}
         className="w-full relative overflow-hidden rounded-3xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-zinc-900/50 p-8 md:p-12 lg:p-16 flex flex-col md:flex-row gap-12 backdrop-blur-sm"
       >
-        <div className="absolute inset-0 bg-linear-to-br from-cyan-500/5 via-transparent to-rose-500/5 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-emerald-500/5 via-transparent to-rose-500/5 pointer-events-none" />
 
         {/* Left side: copy */}
         <div className="flex-1 space-y-6 relative z-10">
@@ -32,7 +32,7 @@ export default function ContactSection() {
 
           <div className="space-y-4 pt-4 text-sm text-zinc-600 dark:text-zinc-400">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
+              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -50,7 +50,7 @@ export default function ContactSection() {
               <p>hello@abhirup.dev</p>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
+              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -86,7 +86,7 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
-                  className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-zinc-900 dark:text-white"
+                  className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-zinc-900 dark:text-white"
                   placeholder="John"
                 />
               </div>
@@ -96,7 +96,7 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
-                  className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-zinc-900 dark:text-white"
+                  className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-zinc-900 dark:text-white"
                   placeholder="Doe"
                 />
               </div>
@@ -108,7 +108,7 @@ export default function ContactSection() {
               </label>
               <input
                 type="email"
-                className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-zinc-900 dark:text-white"
+                className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-zinc-900 dark:text-white"
                 placeholder="johndoe@email.com"
               />
             </div>
@@ -119,7 +119,7 @@ export default function ContactSection() {
               </label>
               <textarea
                 rows={4}
-                className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-zinc-900 dark:text-white resize-none"
+                className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-zinc-900 dark:text-white resize-none"
                 placeholder="How can I help you?"
               />
             </div>

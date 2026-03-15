@@ -27,7 +27,7 @@ export function AboutNavigation() {
             href={link}
             className="group relative text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors pl-2"
           >
-            <span className="absolute -left-4.5 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-cyan-500 opacity-0 group-hover:opacity-100 transition" />
+            <span className="absolute -left-4.5 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-emerald-500 opacity-0 group-hover:opacity-100 transition" />
             {label}
           </Link>
         ))}

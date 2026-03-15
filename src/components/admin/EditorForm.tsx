@@ -24,12 +24,24 @@ function slugify(text: string) {
     .replace(/(^-|-$)+/g, "");
 }
 
+type Category = { id: number; name: string; slug: string };
+type BlogWithCategories = {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  image: string | null;
+  readTime: number | null;
+  categories: Category[];
+};
+
 export default function EditorForm({
   initialData,
   categories,
 }: {
-  initialData?: any;
-  categories: any[];
+  initialData?: BlogWithCategories | null;
+  categories: Category[];
 }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -42,7 +54,7 @@ export default function EditorForm({
   const [readTime, setReadTime] = useState(initialData?.readTime || 5);
 
   const [selectedCategories, setSelectedCategories] = useState<number[]>(
-    initialData?.categories?.map((c: any) => c.id) || [],
+    initialData?.categories?.map((c) => c.id) || [],
   );
 
   useEffect(() => {
@@ -152,8 +164,8 @@ export default function EditorForm({
               <label className="text-sm font-medium">Read Time (minutes)</label>
               <Input
                 type="number"
-                value={readTime}
-                onChange={(e) => setReadTime(e.target.value)}
+                value={readTime || ""}
+                onChange={(e) => setReadTime(Number(e.target.value))}
               />
             </div>
 

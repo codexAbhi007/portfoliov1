@@ -14,7 +14,7 @@ export default function Newsletter() {
     >
       <motion.div
         variants={fadeLeft}
-        className="rounded-3xl border border-black/10 dark:border-white/10 bg-linear-to-br from-cyan-100 to-zinc-100 dark:from-cyan-950/30 dark:to-zinc-900/50 p-12 text-center max-w-3xl mx-auto"
+        className="rounded-3xl border border-black/10 dark:border-white/10 bg-linear-to-br from-emerald-100 to-zinc-100 dark:from-emerald-950/30 dark:to-zinc-900/50 p-12 text-center max-w-3xl mx-auto"
       >
         <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-2">
           Stay updated

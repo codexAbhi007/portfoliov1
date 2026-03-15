@@ -16,7 +16,7 @@ export default function Hero() {
     >
       {/* Status badge */}
       <motion.div variants={fadeLeft}>
-        <div className="group relative shadow-sm inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-sm font-medium overflow-hidden">
+        <div className="group relative shadow-sm inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-sm font-medium overflow-hidden">
           {/* Occasional Shine effect */}
           <motion.div
             animate={{ left: ["-100%", "200%"] }}
@@ -33,7 +33,7 @@ export default function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
-          <span className="text-cyan-800 dark:text-cyan-300 z-10">
+          <span className="text-emerald-800 dark:text-emerald-300 z-10">
             Looking for opportunities
           </span>
         </div>
@@ -48,7 +48,7 @@ export default function Hero() {
           text="16 Bits of a"
           words={["Developer", "Problem Solver", "Creator", "Student","Content Writer"]}
           className="justify-center flex-wrap"
-          textClassName="text-cyan-600 dark:text-cyan-400"
+          textClassName="text-emerald-600 dark:text-emerald-400"
           wordContainerClassName="bg-white/80 dark:bg-zinc-800 text-zinc-900 dark:text-white ring-zinc-200 dark:ring-zinc-700/50 backdrop-blur"
         />
       </motion.div>

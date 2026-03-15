@@ -24,7 +24,7 @@ function slugify(text: string) {
 export default function CategoryManager({
   initialCategories,
 }: {
-  initialCategories: any[];
+  initialCategories: { id: number; name: string; slug: string }[];
 }) {
   const [isPending, startTransition] = useTransition();
   const [name, setName] = useState("");

@@ -12,7 +12,7 @@ export function AboutEducation() {
 
       <div className="flex flex-col gap-6">
         {/* University */}
-        <div className="group p-6 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/40 dark:bg-zinc-900/60 backdrop-blur hover:border-cyan-400/40 transition">
+        <div className="group p-6 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/40 dark:bg-zinc-900/60 backdrop-blur hover:border-emerald-400/40 transition">
           <div className="flex items-start gap-4">
             {/* Logo */}
             <div className="w-12 h-12 rounded-xl   flex items-center justify-center overflow-hidden">
@@ -44,7 +44,7 @@ export function AboutEducation() {
               <a
                 href="https://snuniv.ac.in"
                 target="_blank"
-                className="inline-flex items-center gap-1 mt-2 text-sm text-cyan-500 hover:text-cyan-400"
+                className="inline-flex items-center gap-1 mt-2 text-sm text-emerald-500 hover:text-emerald-400"
               >
                 Visit Website
                 <FiExternalLink />
@@ -54,7 +54,7 @@ export function AboutEducation() {
         </div>
 
         {/* School */}
-        <div className="group p-6 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/40 dark:bg-zinc-900/60 backdrop-blur hover:border-cyan-400/40 transition">
+        <div className="group p-6 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/40 dark:bg-zinc-900/60 backdrop-blur hover:border-emerald-400/40 transition">
           <div className="flex items-start gap-4">
             {/* Logo */}
             <div className="w-12 h-12 rounded-xl   flex items-center justify-center overflow-hidden">
@@ -86,7 +86,7 @@ export function AboutEducation() {
               <a
                 href="https://adityaacademyseniorsecondary.com/"
                 target="_blank"
-                className="inline-flex items-center gap-1 mt-2 text-sm text-cyan-500 hover:text-cyan-400"
+                className="inline-flex items-center gap-1 mt-2 text-sm text-emerald-500 hover:text-emerald-400"
               >
                 Visit Website
                 <FiExternalLink />

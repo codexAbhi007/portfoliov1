@@ -14,7 +14,7 @@ export function AboutProfile() {
       >
         {/* Avatar */}
         <div className="relative w-40 h-40 group">
-          <div className="absolute inset-0 rounded-full bg-linear-to-br from-cyan-500/40 via-teal-400/30 to-emerald-400/40 blur-md opacity-40 group-hover:opacity-60 transition" />
+          <div className="absolute inset-0 rounded-full bg-linear-to-br from-emerald-500/40 via-teal-400/30 to-emerald-400/40 blur-md opacity-40 group-hover:opacity-60 transition" />
 
           <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 bg-zinc-900 shadow-lg">
             {/* eslint-disable-next-line @next/next/no-img-element */}
