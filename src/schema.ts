@@ -1,4 +1,11 @@
-import { pgTable, serial, text, timestamp, integer } from "drizzle-orm/pg-core";
+import {
+  pgTable,
+  serial,
+  text,
+  timestamp,
+  integer,
+  primaryKey,
+} from "drizzle-orm/pg-core";
 
 // ADMIN USERS
 export const users = pgTable("users", {
@@ -14,6 +21,8 @@ export const blogs = pgTable("blogs", {
   id: serial("id").primaryKey(),
 
   title: text("title").notNull(),
+
+  slug: text("slug").notNull().unique(),
 
   excerpt: text("excerpt").notNull(),
 
@@ -34,14 +43,19 @@ export const categories = pgTable("categories", {
 
   name: text("name").notNull(),
 
-  slug: text("slug").notNull(),
+  slug: text("slug").notNull().unique(),
 });
 
 // BLOG CATEGORY RELATION
-export const blogCategories = pgTable("blog_categories", {
-  id: serial("id").primaryKey(),
-
-  blogId: integer("blog_id"),
-
-  categoryId: integer("category_id"),
-});
+export const blogCategories = pgTable(
+  "blog_categories",
+  {
+    blogId: integer("blog_id")
+      .notNull()
+      .references(() => blogs.id, { onDelete: "cascade" }),
+    categoryId: integer("category_id")
+      .notNull()
+      .references(() => categories.id, { onDelete: "cascade" }),
+  },
+  (t) => [{ pk: primaryKey({ columns: [t.blogId, t.categoryId] }) }],
+);
