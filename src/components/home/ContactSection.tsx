@@ -2,8 +2,47 @@
 
 import { motion } from "framer-motion";
 import { container, fadeLeft } from "./animations";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
+import { toast } from "sonner";
 
 export default function ContactSection() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    setIsSubmitting(true);
+    const loadingToast = toast.loading("Sending your message...");
+
+    emailjs
+      .sendForm(
+        "service_cq7ixva",
+        "template_wf4cpqa",
+        formRef.current,
+        "sNwb_9QAaDZea89x-",
+      )
+      .then(
+        () => {
+          toast.success("Message sent successfully!", {
+            id: loadingToast,
+          });
+          formRef.current?.reset();
+          setIsSubmitting(false);
+        },
+        (error) => {
+          toast.error("Failed to send message. Please try again.", {
+            id: loadingToast,
+          });
+          console.error("EmailJS Error:", error);
+          setIsSubmitting(false);
+        },
+      );
+  };
+
   return (
     <motion.section
       variants={container}
@@ -78,7 +117,7 @@ export default function ContactSection() {
 
         {/* Right side: Form */}
         <div className="flex-1 relative z-10 border border-black/10 dark:border-white/10 rounded-2xl bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur p-6 md:p-8 shadow-xl">
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+          <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-zinc-900 dark:text-zinc-200">
@@ -86,6 +125,8 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
+                  name="firstName"
+                  required
                   className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-zinc-900 dark:text-white"
                   placeholder="John"
                 />
@@ -96,6 +137,8 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
+                  name="lastName"
+                  required
                   className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-zinc-900 dark:text-white"
                   placeholder="Doe"
                 />
@@ -108,6 +151,8 @@ export default function ContactSection() {
               </label>
               <input
                 type="email"
+                name="email"
+                required
                 className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-zinc-900 dark:text-white"
                 placeholder="johndoe@email.com"
               />
@@ -119,13 +164,45 @@ export default function ContactSection() {
               </label>
               <textarea
                 rows={4}
+                name="message"
+                required
                 className="w-full px-3 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-zinc-900 dark:text-white resize-none"
                 placeholder="How can I help you?"
               />
             </div>
 
-            <button className="w-full py-3 px-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors shadow-md">
-              Send Message
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full py-3 px-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors shadow-md disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {isSubmitting ? (
+                <>
+                  <svg
+                    className="animate-spin h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Sending...
+                </>
+              ) : (
+                "Send Message"
+              )}
             </button>
           </form>
         </div>

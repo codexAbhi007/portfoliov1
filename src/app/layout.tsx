@@ -59,7 +59,7 @@ export default function RootLayout({
           </main>
           <GlobalFooter />
           <ScrollToTop />
-          <Toaster position="bottom-right" />
+          <Toaster position="bottom-right" richColors />
         </ThemeProvider>
       </body>
     </html>
