@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 import { HeaderInfo } from "@/components/HeaderInfo";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { GlobalFooter } from "@/components/GlobalFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +44,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative w-full`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative w-full flex flex-col`}
       >
         <ThemeProvider
           attribute="class"
@@ -52,9 +53,10 @@ export default function RootLayout({
         >
           <HeaderInfo />
           <Navbar />
-          <main className="pt-32 pb-28 md:pb-16 px-2 max-w-6xl mx-auto">
+          <main className="pt-32 px-2 max-w-6xl mx-auto flex-1 w-full">
             {children}
           </main>
+          <GlobalFooter />
           <ScrollToTop />
         </ThemeProvider>
       </body>
